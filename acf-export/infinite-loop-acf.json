@@ -1,0 +1,506 @@
+[
+  {
+    "key": "group_global_options",
+    "title": "Global Settings",
+    "fields": [
+      {
+        "key": "field_site_name",
+        "label": "Site Name",
+        "name": "site_name",
+        "type": "text",
+        "default_value": "Infinite Loop",
+        "instructions": "The site name shown in the navbar when no logo is set."
+      },
+      {
+        "key": "field_site_logo",
+        "label": "Site Logo",
+        "name": "site_logo",
+        "type": "image",
+        "return_format": "array",
+        "preview_size": "medium",
+        "instructions": "Upload the site logo. Recommended size: 200×60px."
+      },
+      {
+        "key": "field_favicon",
+        "label": "Favicon",
+        "name": "favicon",
+        "type": "image",
+        "return_format": "array",
+        "preview_size": "thumbnail",
+        "instructions": "Upload a 32×32 or 64×64 favicon image."
+      },
+      {
+        "key": "field_nav_items",
+        "label": "Navigation Items",
+        "name": "nav_items",
+        "type": "repeater",
+        "min": 1,
+        "max": 10,
+        "layout": "table",
+        "sub_fields": [
+          {
+            "key": "field_nav_label",
+            "label": "Label",
+            "name": "label",
+            "type": "text",
+            "required": 1
+          },
+          {
+            "key": "field_nav_link",
+            "label": "Link",
+            "name": "link",
+            "type": "text",
+            "instructions": "Use #section-id for on-page links (e.g. #whatwedo) or a full URL for external links.",
+            "required": 1
+          }
+        ]
+      },
+      {
+        "key": "field_footer_copyright",
+        "label": "Footer Copyright",
+        "name": "footer_copyright",
+        "type": "text",
+        "default_value": "Copyright &copy; 2024 Company Name",
+        "instructions": "HTML is allowed (e.g. &copy; for copyright symbol)."
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "global-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Global site settings including logo, navigation, and footer."
+  },
+  {
+    "key": "group_page_sections",
+    "title": "Page Sections",
+    "fields": [
+      {
+        "key": "field_seo_title",
+        "label": "SEO Title",
+        "name": "seo_title",
+        "type": "text",
+        "instructions": "Overrides the page title in the browser tab and search results."
+      },
+      {
+        "key": "field_seo_description",
+        "label": "SEO Description",
+        "name": "seo_description",
+        "type": "textarea",
+        "rows": 3,
+        "instructions": "Meta description for search engines (150–160 characters recommended)."
+      },
+      {
+        "key": "field_page_sections",
+        "label": "Page Sections",
+        "name": "page_sections",
+        "type": "flexible_content",
+        "instructions": "Build the page by adding and reordering content sections.",
+        "button_label": "Add Section",
+        "min": 0,
+        "max": 20,
+        "layouts": [
+          {
+            "key": "layout_hero",
+            "name": "hero",
+            "label": "Hero",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_hero_title",
+                "label": "Hero Title",
+                "name": "hero_title",
+                "type": "text",
+                "required": 1,
+                "default_value": "Infinite Loop"
+              },
+              {
+                "key": "field_hero_subtitle",
+                "label": "Hero Subtitle",
+                "name": "hero_subtitle",
+                "type": "textarea",
+                "rows": 3,
+                "instructions": "Use a newline to create a line break in the subtitle."
+              },
+              {
+                "key": "field_hero_bg_image",
+                "label": "Background Image",
+                "name": "hero_bg_image",
+                "type": "image",
+                "return_format": "array",
+                "preview_size": "medium",
+                "required": 1,
+                "instructions": "Full-width background image for the hero section. Recommended: 1920×1080px."
+              },
+              {
+                "key": "field_hero_arrow_target",
+                "label": "Arrow Target Section",
+                "name": "hero_arrow_target",
+                "type": "text",
+                "default_value": "#whatwedo",
+                "instructions": "The #id of the section to scroll to when the arrow is clicked."
+              }
+            ]
+          },
+          {
+            "key": "layout_what_we_do",
+            "name": "what_we_do",
+            "label": "What We Do",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_whatwedo_section_id",
+                "label": "Section ID",
+                "name": "section_id",
+                "type": "text",
+                "default_value": "whatwedo",
+                "instructions": "HTML id attribute for this section (used for anchor links)."
+              },
+              {
+                "key": "field_whatwedo_intro_title",
+                "label": "Intro Title",
+                "name": "intro_title",
+                "type": "text",
+                "default_value": "What We Do",
+                "required": 1
+              },
+              {
+                "key": "field_whatwedo_intro_text",
+                "label": "Intro Text",
+                "name": "intro_text",
+                "type": "wysiwyg",
+                "toolbar": "basic",
+                "media_upload": 0
+              },
+              {
+                "key": "field_whatwedo_services",
+                "label": "Services",
+                "name": "services",
+                "type": "repeater",
+                "min": 1,
+                "max": 8,
+                "layout": "block",
+                "button_label": "Add Service",
+                "sub_fields": [
+                  {
+                    "key": "field_service_icon_class",
+                    "label": "Icon Class",
+                    "name": "icon_class",
+                    "type": "text",
+                    "required": 1,
+                    "instructions": "Font Awesome class string, e.g. 'far fa-3x fa-chart-bar'. Browse icons at fontawesome.com/icons"
+                  },
+                  {
+                    "key": "field_service_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1
+                  },
+                  {
+                    "key": "field_service_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "wysiwyg",
+                    "toolbar": "basic",
+                    "media_upload": 0
+                  },
+                  {
+                    "key": "field_service_button_text",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "Leave blank to hide the button."
+                  },
+                  {
+                    "key": "field_service_button_link",
+                    "label": "Button Link",
+                    "name": "button_link",
+                    "type": "text",
+                    "instructions": "URL or anchor link (e.g. #testimonials)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "layout_testimonials",
+            "name": "testimonials",
+            "label": "Testimonials",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_testimonials_section_id",
+                "label": "Section ID",
+                "name": "section_id",
+                "type": "text",
+                "default_value": "testimonials"
+              },
+              {
+                "key": "field_testimonials_title",
+                "label": "Title",
+                "name": "title",
+                "type": "text",
+                "default_value": "Testimonials",
+                "required": 1
+              },
+              {
+                "key": "field_testimonials_description",
+                "label": "Description",
+                "name": "description",
+                "type": "textarea",
+                "rows": 3
+              },
+              {
+                "key": "field_testimonials_bg_image",
+                "label": "Background Image (Desktop)",
+                "name": "bg_image",
+                "type": "image",
+                "return_format": "array",
+                "preview_size": "medium",
+                "required": 1,
+                "instructions": "Parallax background image. Recommended: 1920×800px."
+              },
+              {
+                "key": "field_testimonials_bg_image_mobile",
+                "label": "Background Image (Mobile)",
+                "name": "bg_image_mobile",
+                "type": "image",
+                "return_format": "array",
+                "preview_size": "medium",
+                "instructions": "Mobile background image (used below 992px). Recommended: 768×600px."
+              },
+              {
+                "key": "field_testimonials_items",
+                "label": "Testimonials",
+                "name": "items",
+                "type": "repeater",
+                "min": 1,
+                "max": 20,
+                "layout": "block",
+                "button_label": "Add Testimonial",
+                "sub_fields": [
+                  {
+                    "key": "field_testimonial_image",
+                    "label": "Photo",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "required": 1,
+                    "instructions": "Square portrait image. Recommended: 290×290px."
+                  },
+                  {
+                    "key": "field_testimonial_quote",
+                    "label": "Quote",
+                    "name": "quote",
+                    "type": "textarea",
+                    "rows": 4,
+                    "required": 1
+                  },
+                  {
+                    "key": "field_testimonial_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "required": 1
+                  },
+                  {
+                    "key": "field_testimonial_role",
+                    "label": "Role / Title",
+                    "name": "role",
+                    "type": "text",
+                    "required": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "layout_gallery",
+            "name": "gallery",
+            "label": "Gallery",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_gallery_section_id",
+                "label": "Section ID",
+                "name": "section_id",
+                "type": "text",
+                "default_value": "gallery"
+              },
+              {
+                "key": "field_gallery_title",
+                "label": "Title",
+                "name": "title",
+                "type": "text",
+                "default_value": "Gallery",
+                "required": 1
+              },
+              {
+                "key": "field_gallery_description",
+                "label": "Description",
+                "name": "description",
+                "type": "textarea",
+                "rows": 3
+              },
+              {
+                "key": "field_gallery_items",
+                "label": "Gallery Items",
+                "name": "items",
+                "type": "repeater",
+                "min": 1,
+                "max": 50,
+                "layout": "block",
+                "button_label": "Add Image",
+                "sub_fields": [
+                  {
+                    "key": "field_gallery_thumbnail",
+                    "label": "Thumbnail",
+                    "name": "thumbnail",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "required": 1,
+                    "instructions": "Small thumbnail shown in the carousel. Recommended: 220×220px."
+                  },
+                  {
+                    "key": "field_gallery_full_image",
+                    "label": "Full Image",
+                    "name": "full_image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "required": 1,
+                    "instructions": "Full-resolution image shown in the lightbox."
+                  },
+                  {
+                    "key": "field_gallery_caption_line1",
+                    "label": "Caption Line 1",
+                    "name": "caption_line1",
+                    "type": "text"
+                  },
+                  {
+                    "key": "field_gallery_caption_line2",
+                    "label": "Caption Line 2 (bold)",
+                    "name": "caption_line2",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "layout_contact",
+            "name": "contact",
+            "label": "Contact",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_contact_section_id",
+                "label": "Section ID",
+                "name": "section_id",
+                "type": "text",
+                "default_value": "contact"
+              },
+              {
+                "key": "field_contact_title",
+                "label": "Title",
+                "name": "title",
+                "type": "text",
+                "default_value": "Contact Us",
+                "required": 1
+              },
+              {
+                "key": "field_contact_description",
+                "label": "Description",
+                "name": "description",
+                "type": "textarea",
+                "rows": 4
+              },
+              {
+                "key": "field_contact_bg_image",
+                "label": "Background Image",
+                "name": "bg_image",
+                "type": "image",
+                "return_format": "array",
+                "preview_size": "medium",
+                "required": 1,
+                "instructions": "Parallax background image. Recommended: 1920×980px."
+              },
+              {
+                "key": "field_contact_items",
+                "label": "Contact Items",
+                "name": "contact_items",
+                "type": "repeater",
+                "min": 0,
+                "max": 8,
+                "layout": "table",
+                "button_label": "Add Contact Item",
+                "sub_fields": [
+                  {
+                    "key": "field_contact_icon_class",
+                    "label": "Icon Class",
+                    "name": "icon_class",
+                    "type": "text",
+                    "required": 1,
+                    "instructions": "Font Awesome class, e.g. 'far fa-2x fa-envelope'"
+                  },
+                  {
+                    "key": "field_contact_item_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "required": 1
+                  },
+                  {
+                    "key": "field_contact_item_link",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "text",
+                    "required": 1,
+                    "instructions": "URL, mailto:, or tel: link"
+                  }
+                ]
+              },
+              {
+                "key": "field_contact_form_action_url",
+                "label": "Form Action URL",
+                "name": "form_action_url",
+                "type": "text",
+                "default_value": "/api/contact",
+                "instructions": "The endpoint where the contact form submits. Use /api/contact for the built-in Next.js handler."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Flexible content sections for building page layouts."
+  }
+]
