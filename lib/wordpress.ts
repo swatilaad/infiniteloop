@@ -8,11 +8,17 @@ import type {
 } from './types';
 
 const WP_BASE_URL = process.env.NEXT_PUBLIC_WP_BASE_URL;
-const WP_API = `${WP_BASE_URL}/wp-json`;
+const WP_API = WP_BASE_URL ? `${WP_BASE_URL}/wp-json` : null;
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 async function wpFetch<T>(endpoint: string): Promise<T> {
+  if (!WP_API) {
+    throw new Error(
+      'NEXT_PUBLIC_WP_BASE_URL is not set. Add it to your Vercel environment variables.'
+    );
+  }
+
   const url = `${WP_API}${endpoint}`;
   const res = await fetch(url, {
     next: { revalidate: 60 },

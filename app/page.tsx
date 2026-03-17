@@ -1,3 +1,6 @@
+// Never pre-render at build time — always fetch fresh from WordPress at runtime
+export const dynamic = 'force-dynamic';
+
 import { getGlobalOptions, getHomePage } from '@/lib/wordpress';
 import type {
   HeroSectionData,
